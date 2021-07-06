@@ -1,0 +1,361 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Web2.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- css stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- font awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- popup contnet -->
+   
+<!--	 <link rel="stylesheet" href="css/mdb.min.css">   -->
+
+     
+
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+       
+            
+
+
+                <nav class="navbar bg-black navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="homepage.aspx">Housefind</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" >
+      <li class="nav-item" style="padding: 0 38px;">
+        <asp:LinkButton ID="Home" runat="server" class="nav-link" OnClick="Home_Click">Home</asp:LinkButton>
+ <!--       <a class="nav-link" href="homepage.aspx">Home <span class="sr-only">(current)</span></a>        -->
+      </li>
+      <li class="nav-item" style="padding: 0 38px;">
+        <asp:LinkButton ID="Services" runat="server" class="nav-link" OnClick="Services_Click">Services</asp:LinkButton>
+  <!--      <a class="nav-link" href="servicespage.aspx">Services</a>           -->
+      </li>
+        <li class="nav-item" style="padding: 0 38px;">
+        <asp:LinkButton ID="ContactUs" runat="server" class="nav-link" OnClick="ContactUs_Click">Contact Us</asp:LinkButton>
+ <!--       <a class="nav-link" href="#">Contact Us</a>          -->
+      </li>
+        <li class="nav-item" style="padding: 0 38px;">
+            
+    <!--   <a href="timepass.aspx" type="button"  data-toggle="modal" data-target="#signupPage">Sign up<i class="fas fa-user-plus ml-3"></i></a>   -->
+  <!--     <asp:Button ID="Button2" runat="server" class="btn btn-outline-danger" Text="Sign up" data-toggle="modal" data-target="#signupPage"/>   -->
+  <!--     <button ID="Button6" runat="server" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#signupPage">Sign up</button>   -->
+  <!--     <a href="" class="btn btn-outline-danger" data-toggle="modal" data-target="#Panel1">Sign in<i class="fas fa-sign-in-alt ml-3"></i></a>  -->
+  <!--     <asp:Button ID="Button3" runat="server" Text="Sign in" class="btn btn-outline-danger" data-toggle="modal" data-target="#signinPage" />  -->
+  <!--     <button ID="Button5" runat="server" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#signinPage">Sign in</button>    -->
+ <!--           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupPage">Launch demo modal</button>            -->
+            
+
+        
+      </li>
+      <li class="nav-item" style="padding: 0 38px;">
+
+          <asp:LinkButton ID="new_login_button" runat="server" onClick="new_login_button_Click" style="background-color: #eb1041; border-radius:10px;" Height="28px" Width="130px">Login / Register</asp:LinkButton>
+          <asp:LinkButton ID="submitproperty" runat="server" OnClick="submitproperty_Click" style="background-color: #eb1041;border-radius:10px;" Height="28px"  Width="130px">Submit property</asp:LinkButton>
+       
+      </li>
+    </ul>
+  </div>
+
+
+    
+          
+    </ul>  
+ </div>
+</nav>
+
+
+       <%-- <asp:Panel ID="tenant_login_panel" runat="server" Height="303px" Width="29%">
+
+            <asp:Login ID="login_box" runat="server" BackColor="#CCFFFF" BorderStyle="Solid" BorderWidth="2px" DestinationPageUrl="~/Tenant.aspx" FailureText="Please enter correct username and password " ForeColor="Red" InstructionText="Login as Tenant" VisibleWhenLoggedIn="False"></asp:Login>
+            <asp:Label ID="Label7" runat="server" Text="Dont have an account"></asp:Label><br />
+            <asp:Button ID="create_tenant_account_button" runat="server" Text="Register" OnClick="create_tenant_account_button_Click" />
+        </asp:Panel>
+
+
+        <asp:Panel ID="tenant_register_panel" runat="server" Height="600px" Width="30%">
+
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+                <WizardSteps>
+                    <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                    </asp:CreateUserWizardStep>
+                    <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+                    </asp:CompleteWizardStep>
+                </WizardSteps>
+            </asp:CreateUserWizard>
+        </asp:Panel>--%>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+        <section id="map" style="margin-top: 50px;"> 
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8268171311956!2d72.91050581472955!3d19.07135048709062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63b6302cf1f%3A0xdda939964f7cfd37!2sKamraj%20Nagar%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1617879805712!5m2!1sen!2sin" width="100%" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" class="border-0"></iframe>
+      </section>
+        
+
+
+
+         <!--Sign Up Page Content-->
+
+  <div class="modal fade" id="signupPage" tabindex="-1" role="dialog" aria-labelledby="signupPageLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header text-center">
+          <h4 class="modal-title text-center w-100 font-weight-bold" id="signupPageLabel">Sign Up</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-lable="close"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <div class="modal-body mx-3">
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <asp:TextBox ID="signupname" runat="server" class="form-control validate"></asp:TextBox>
+            
+    <!--        <input type="text" class="form-control validate">      -->
+              <asp:Label ID="Label1" runat="server" Text="Label" data-error="wrong" data-success="right">Your Name</asp:Label>
+    <!--          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name is required" ControlToValidate="signupname" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>       -->
+   <!--         <label data-error="wrong" data-success="right">Your Name</label>        -->
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <asp:TextBox ID="signupemail" runat="server" class="form-control validate" TextMode="Email"></asp:TextBox>
+            
+    <!--        <input type="email" class="form-control validate">      -->
+            <asp:Label ID="Label2" runat="server" Text="Label" data-error="wrong" data-success="right">Your Email</asp:Label>
+    <!--        <asp:RegularExpressionValidator ID="RegularExpressionValidatoremail" runat="server" ErrorMessage="Invalid Email" ControlToValidate="signupemail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>          -->
+   <!--         <label data-error="wrong" data-success="right">Your Email</label>         -->
+          </div>
+
+            <div class="md-form mb-5">
+            <i class="fas fa-phone prefix grey-text"></i>
+                <asp:TextBox ID="signupphonenumber" runat="server" class="form-control validate" TextMode="Phone"></asp:TextBox>
+   <!--        <input type="number" class="form-control validate">              -->
+            <asp:Label ID="Label3" runat="server" Text="Your Phone Number" data-error="wrong" data-success="right"></asp:Label>
+  <!--          <asp:RegularExpressionValidator ID="RegularExpressionValidatorphonenumber" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="signupphonenumber" ForeColor="Red" ValidationExpression="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$"></asp:RegularExpressionValidator>                  -->
+   <!--         <label data-error="wrong" data-success="right">Your Phone Number</label>       -->
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <asp:TextBox ID="signuppassword" runat="server" class="form-control validate" placeholder="Password" TextMode="Password"></asp:TextBox>
+           
+  <!--          <input type="password" class="form-control validate">      -->
+            <asp:Label ID="Label4" runat="server" Text="Label" data-error="wrong" data-success="right">Your Password</asp:Label>
+  <!--          <label data-error="wrong" data-success="right">Your Password</label>          -->
+          </div>
+
+            <div class="md-form mb-5">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <asp:TextBox ID="confirmpassword" runat="server" class="form-control validate" placeholder="retype Password" TextMode="Password"></asp:TextBox>
+            
+  <!--          <input type="password" class="form-control validate">          -->
+            <asp:Label ID="Label5" runat="server" Text="Label" data-error="wrong" data-success="right">Confirm Password</asp:Label>
+ <!--           <asp:CompareValidator ID="CompareValidatorpassword" runat="server" ErrorMessage="Password and Retype Password must match" ControlToCompare="signuppassword" ControlToValidate="confirmpassword" Type="String" Operator="Equal" ForeColor="Red"></asp:CompareValidator>                     -->
+  <!--         <label data-error="wrong" data-success="right">Confirm Password</label>    -->
+          </div>
+
+            <div class="md-form md-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <asp:DropDownList ID="signupusertypeDropDownList1" runat="server" list="item" class="form-control validate">
+                <asp:ListItem Text="Select User Type" Value="-1"></asp:ListItem>
+                <asp:ListItem Text="Owner" Value="Male"></asp:ListItem>
+                <asp:ListItem Text="Tenant" Value="Female"></asp:ListItem>
+            </asp:DropDownList>
+
+   
+            </div>
+            </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <asp:Button ID="Signup" runat="server" Text="Sign up" class="btn btn-danger" OnClick="Signup_Click" />
+   <!--       <button class="btn btn-danger">Sign up</button>        -->
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+
+
+
+
+
+
+  
+<!--database of signin page-->
+
+ <!--       <asp:SqlDataSource ID="Signin_SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:database1_cs %>" DeleteCommand="DELETE FROM [signin_tb] WHERE [email id] = @email_id" InsertCommand="INSERT INTO [signin_tb] ([email id], [password]) VALUES (@email_id, @password)" SelectCommand="SELECT * FROM [signin_tb]" UpdateCommand="UPDATE [signin_tb] SET [password] = @password WHERE [email id] = @email_id">
+            <DeleteParameters>
+                <asp:ControlParameter Name="email_id" Type="String"  ControlID="Signinemail_tb"/>
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter Name="email_id" Type="String" ControlID="Signinemail_tb"/>
+                <asp:ControlParameter Name="password" Type="String" ControlID="Signinpassword_tb" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:ControlParameter Name="password" Type="String"  ControlID="Signinpassword_tb"/>
+                <asp:ControlParameter Name="email_id" Type="String" ControlID="Signinemail_tb"/>
+            </UpdateParameters>
+                </asp:SqlDataSource>                -->
+
+
+
+
+
+
+
+
+   <!--    content of sign in popup         -->
+
+
+<div class="modal fade" id="signinPage">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold">Sign In</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+      </div>
+
+      <div class="modal-body mx-4">
+        <div class="md-form">
+            <asp:TextBox ID="Signinemail" runat="server" class="form-control validate" TextMode="Email"></asp:TextBox>
+  <!--       <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Email" ControlToValidate="Signinemail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>         -->
+ <!--         <input type="email" class="form-control validate">            -->
+            <asp:Label ID="Label6" runat="server" Text="Label" data-error="wrong" data-success="right">Your Email</asp:Label>
+ <!--         <label data-error="wrong" data-success="right">Your Email</label>           -->
+        </div>
+
+        <div class="md-form">
+          <asp:TextBox ID="signinpassword" runat="server" class="form-control validate" TextMode="Password"></asp:TextBox>
+ <!--         <input type="password" class="form-control validate">             -->
+            <asp:Label ID="Label8" runat="server" Text="Label" data-error="wrong" data-success="right">Your Password</asp:Label>
+ <!--         <label data-error="wrong" data-success="right">Your Password</label>       -->
+          <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">Forgot Password?</a></p>
+        </div>
+
+        <div class="text-center mb-3">
+          <asp:Button ID="Button1" runat="server" Text="Sign in" OnClick="Signin_Click" class="btn btn-danger btn-block z-depth-1a" />
+  <!--        <button type="button"  class="btn btn-danger btn-block z-depth-1a">Sign in</button>     -->
+        </div>
+        <p class="font-small dark-grey-text d-flex justify-content-center">or sign in with:</p>
+
+        <div class="row my-3 justify-content-center">
+          <button type="button" style="margin: 20px 10px;" class="btn btn-primary z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
+          <button type="button" style="margin: 20px 10px;" class="btn btn-purple z-depth-1a"><i class="fab fa-twitter text-center"></i></button>
+          <button type="button" style="margin: 20px 10px;" class="btn btn-red z-depth-1a"><i class="fab fa-google text-center"></i></button>
+        </div>
+
+          <div class="row my-3 justify-content-center">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+
+      </div>
+    </div>
+    </div> 
+  </div>
+
+
+
+
+
+        <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a href="homepage.aspx">Home</a></li>
+  	 				<li><a href="servicespage.aspx">our services</a></li>
+  	 				<li><a href="contactuspage.aspx">Contact us</a></li>
+  	 				
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="#">FAQ</a></li>
+  	 				<li><a href="#">Contact us</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+  	 				<a href="https://www.facebook.com/vyankatesh.nomool.3"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="<a href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/deaf_kev_5932/?hl=en"><i class="fab fa-instagram"></i></a>
+  	 				<a href="https://www.linkedin.com/in/vyankatesh-nomool-6380b9206?originalSubdomain=in"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+
+
+       
+
+
+      
+
+
+
+
+
+             <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+  <!-- google sign in -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+        <script type="text/javascript">
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        </script>
+
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿.tb{
+    height:25px;
+    width:210px;
+    border-radius:10px;
+}
+
+.btn{
+    height:37px;
+    width:80px;
+    border-radius:15px;
+}
+
+.lbl{
+    font-size:25px;
+}
+
+.gvcorner{
+    border-radius:10px;
+    font-size:24px;
+}
+
+.heading{
+    font-size:35px;
+}
+
+.menu_items{
+    font-size:23px;
+}
